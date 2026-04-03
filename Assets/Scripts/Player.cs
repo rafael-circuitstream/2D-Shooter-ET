@@ -3,6 +3,7 @@ using UnityEngine;
 public class Player : Character, IDash
 {
     [SerializeField] private Vector2 mousePosition;
+    private Weapon currentWeapon;
 
     void Update()
     {
@@ -15,8 +16,7 @@ public class Player : Character, IDash
 
         mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
 
-
-        transform.up = (Vector3)mousePosition - transform.position;
+        Rotate(mousePosition);
 
 
         Move();
@@ -26,11 +26,22 @@ public class Player : Character, IDash
             Dash();
         }
 
+        if(Input.GetMouseButtonDown(0))
+        {
+            currentWeapon.Use();
+        }
+
     }
 
     public void Dash()
     {
         rigidbodyModule.AddForce(movementDirection * moveSpeed * 3f);
+    }
+
+    public void EquipWeapon(Weapon newWeapon)
+    {
+        currentWeapon = newWeapon;
+        
     }
 
 }

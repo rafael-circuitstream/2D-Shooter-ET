@@ -16,7 +16,7 @@ public class Enemy : Character
         movementDirection = playerTargetTransform.position - transform.position;
         movementDirection = movementDirection.normalized;
 
-        transform.up = movementDirection;
+        Rotate(playerTargetTransform.position);
 
         Move();
     }
