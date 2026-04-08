@@ -3,16 +3,29 @@ using UnityEngine;
 public class Player : Character, IDash
 {
     [SerializeField] private Vector2 mousePosition;
+    [SerializeField] private Transform weaponTip;
+    [SerializeField] private Projectile projectilePrefab;
+
     private Weapon currentWeapon;
+
+    protected override void Start()
+    {
+        currentWeapon = new RangedWeapon(
+            newFireRate:10,
+            newDamage:5, 
+            newProjectile:projectilePrefab,
+            newTip:weaponTip
+            );
+
+        base.Start();
+    }
+
 
     void Update()
     {
         
         movementDirection.x = Input.GetAxisRaw("Horizontal");
         movementDirection.y = Input.GetAxisRaw("Vertical");
-
-
-        //If I press the mouse click = Attack();
 
         mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
 
@@ -28,9 +41,16 @@ public class Player : Character, IDash
 
         if(Input.GetMouseButtonDown(0))
         {
-            currentWeapon.Use();
+            Attack();
         }
 
+    }
+
+    public override void Attack()
+    {
+        base.Attack();
+
+        currentWeapon.Use();
     }
 
     public void Dash()
