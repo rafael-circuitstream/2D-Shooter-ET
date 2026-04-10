@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class Health
 {
+    public Action OnHealthZero;
     private float healthPoints;
 
     public float GetHealthPoints()
@@ -17,6 +19,13 @@ public class Health
     public void DecreaseHealth(float toDecrease)
     {
         healthPoints -= toDecrease;
+        Debug.Log(healthPoints);
+
+
+        if(GetHealthPoints() <= 0)
+        {
+            OnHealthZero?.Invoke();
+        }
     }
 
 
