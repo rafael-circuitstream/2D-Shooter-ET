@@ -12,6 +12,7 @@ public abstract class Character : MonoBehaviour
 
     public Health healthModule;
 
+
     protected virtual void Start()
     {
         healthModule = new Health(100);

@@ -19,8 +19,6 @@ public class Health
     public void DecreaseHealth(float toDecrease)
     {
         healthPoints -= toDecrease;
-        Debug.Log(healthPoints);
-
 
         if(GetHealthPoints() <= 0)
         {

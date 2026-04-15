@@ -4,22 +4,29 @@ public class Player : Character, IDash
 {
     [SerializeField] private Vector2 mousePosition;
     [SerializeField] private Transform weaponTip;
-    [SerializeField] private Projectile projectilePrefab;
+    //[SerializeField] private Projectile projectilePrefab;
 
-    private Weapon currentWeapon;
+    [SerializeField] private Weapon currentWeapon;
 
     protected override void Start()
     {
-        currentWeapon = new RangedWeapon(
-            newFireRate:10,
-            newDamage:5, 
-            newProjectile:projectilePrefab,
-            newTip:weaponTip
-            );
+        //currentWeapon = new RangedWeapon(
+        //    newFireRate:10,
+        //    newDamage:5, 
+        //    newProjectile:projectilePrefab,
+        //    newTip:weaponTip
+        //    );
 
         base.Start();
+
+        healthModule.OnHealthZero += EndGame;
     }
 
+    private void EndGame()
+    {
+        FindAnyObjectByType<GameManager>().RegisterHighScore();
+        Destroy(gameObject);
+    }
 
     void Update()
     {
@@ -50,7 +57,7 @@ public class Player : Character, IDash
     {
         base.Attack();
 
-        currentWeapon.Use();
+        currentWeapon.Use(weaponTip);
     }
 
     public void Dash()
