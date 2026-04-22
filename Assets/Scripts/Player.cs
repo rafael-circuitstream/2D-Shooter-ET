@@ -3,10 +3,13 @@ using UnityEngine;
 public class Player : Character, IDash
 {
     [SerializeField] private Vector2 mousePosition;
-    [SerializeField] private Transform weaponTip;
-    //[SerializeField] private Projectile projectilePrefab;
 
     [SerializeField] private Weapon currentWeapon;
+    [SerializeField] private Transform weaponTip;
+
+    //[SerializeField] private Projectile projectilePrefab;
+
+
 
     protected override void Start()
     {

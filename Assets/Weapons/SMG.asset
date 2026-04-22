@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bec12087cfc8654c8e30a87da6f3548, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: Assembly-CSharp::RangedWeapon
-  damage: 8
+  damage: 50
   projectilePrefab: {fileID: 5784525981543760635, guid: 7da0bf45b81e07e43b6a43354a162c66, type: 3}
-  weaponTip: {fileID: 0}
   fireRate: 8

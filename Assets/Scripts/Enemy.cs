@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     private Player playerTargetTransform;
+    [SerializeField] private float distanceToAttack;
 
     protected override void Start()
     {
@@ -17,18 +18,20 @@ public class Enemy : Character
         {
             return;
         }
-
+        
 
         movementDirection = playerTargetTransform.transform.position - transform.position;
         movementDirection = movementDirection.normalized;
 
         Rotate(playerTargetTransform.transform.position);
 
-        Move();
-
-        if(Vector2.Distance(transform.position, playerTargetTransform.transform.position) < 2f)
+        if(Vector2.Distance(transform.position, playerTargetTransform.transform.position) < distanceToAttack)
         {
             Attack();
+        }
+        else
+        {
+            Move();
         }
     }
 

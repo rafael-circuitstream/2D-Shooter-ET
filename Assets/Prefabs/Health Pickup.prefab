@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5315805742123777972
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4947755416190812062, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_Name
+      value: Health Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.181
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064442761874328551, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7995163864966302322, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4947755416190812062, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4287566163933310258}
+  m_SourcePrefab: {fileID: 100100000, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+--- !u!1 &967284901857820714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4947755416190812062, guid: c20fb625e2e60c643866334c306e465d, type: 3}
+  m_PrefabInstance: {fileID: 5315805742123777972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4287566163933310258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967284901857820714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37f68a7e46e2644eb68323a6dd8e950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthPickUp
+  amountOfHealth: 10

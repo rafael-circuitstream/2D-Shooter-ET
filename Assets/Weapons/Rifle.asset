@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bec12087cfc8654c8e30a87da6f3548, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: Assembly-CSharp::RangedWeapon
-  damage: 10
+  damage: 35
   projectilePrefab: {fileID: 4329616126933464614, guid: 1dfcdcd974af9c54aa8240548d13db1a, type: 3}
   fireRate: 5

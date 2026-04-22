@@ -4,14 +4,45 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Spawning Enemies")]
     [SerializeField] private List<Enemy> allSpawnedEnemies;
-
     [SerializeField] private Enemy[] possibleEnemyPrefabs;
     [SerializeField] private Transform[] possibleSpawnPoints;
-
     [SerializeField] private Transform enemiesParent;
+    
+    [Space(10)]
 
+    [Header("Score")]
     [SerializeField] private int currentScore;
+    [Space(10)]
+
+    [Header("Pick ups")]
+    [SerializeField] private Pickup[] pickupsToSpawn;
+    [SerializeField] private float chanceToSpawnPickup;
+
+    private void SpawnRandomPickup(Vector2 positionToSpawn)
+    {
+        int randomIndex = Random.Range(0, pickupsToSpawn.Length);
+        Pickup randomPickup = pickupsToSpawn[randomIndex];
+
+        Instantiate(randomPickup, positionToSpawn, Quaternion.identity);
+    }
+
+    public void EnemyKilled(Enemy deadEnemy)
+    {
+        allSpawnedEnemies.Remove(deadEnemy);
+        currentScore += 10;
+
+        if (Random.Range(0, 100) < chanceToSpawnPickup)
+        {
+            SpawnRandomPickup(deadEnemy.transform.position);
+
+        }
+
+        
+        //increase score
+        //play sound
+    }
 
     void Start()
     {
@@ -50,21 +81,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void EnemyKilled(Enemy deadEnemy)
-    {
-        allSpawnedEnemies.Remove(deadEnemy);
-        currentScore += 10;
 
-        //Spawn pick up at deadEnemy.position;
-        //increase score
-        //play sound
-    }
 
     public int GetCurrentScore()
     {
         return currentScore;
     }
-
 
     public void RegisterHighScore()
     {
@@ -76,6 +98,8 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+
 }
 
 
