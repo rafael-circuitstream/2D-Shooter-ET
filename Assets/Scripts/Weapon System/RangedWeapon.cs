@@ -6,7 +6,9 @@ public class RangedWeapon : Weapon
     [SerializeField] private Projectile projectilePrefab;
     //[SerializeField] private Transform weaponTip;
     [SerializeField] private float fireRate;
-   
+    [SerializeField] private AudioClip shootingSound;
+
+    
     public override void Use(Transform tip)
     {
         Projectile clonedProjectile = GameObject.Instantiate(projectilePrefab, tip.position, tip.rotation);
