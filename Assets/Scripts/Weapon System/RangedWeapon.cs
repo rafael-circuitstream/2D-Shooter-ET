@@ -8,11 +8,20 @@ public class RangedWeapon : Weapon
     [SerializeField] private float fireRate;
     [SerializeField] private AudioClip shootingSound;
 
-    
+    private AudioManager audioManagerReference;
+
+
     public override void Use(Transform tip)
     {
         Projectile clonedProjectile = GameObject.Instantiate(projectilePrefab, tip.position, tip.rotation);
         clonedProjectile.damage = damage;
+
+        if(audioManagerReference == null)
+        {
+            audioManagerReference = FindAnyObjectByType<AudioManager>();
+        }
+
+        audioManagerReference.PlayShootingSound(shootingSound);
     }
 
     public float GetFireRate()

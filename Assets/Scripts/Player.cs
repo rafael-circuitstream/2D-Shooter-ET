@@ -8,7 +8,9 @@ public class Player : Character, IDash
     [SerializeField] private Transform weaponTip;
 
     //[SerializeField] private Projectile projectilePrefab;
-
+    
+    
+    private float shootCountdown;
 
 
     protected override void Start()
@@ -33,14 +35,12 @@ public class Player : Character, IDash
 
     void Update()
     {
-        
         movementDirection.x = Input.GetAxisRaw("Horizontal");
         movementDirection.y = Input.GetAxisRaw("Vertical");
 
         mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
 
         Rotate(mousePosition);
-
 
         Move();
 
@@ -49,16 +49,33 @@ public class Player : Character, IDash
             Dash();
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(shootCountdown <= 0)
         {
-            Attack();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Attack();
+            }
         }
+        else
+        {
+            shootCountdown -= Time.deltaTime;
+        }
+
 
     }
 
     public override void Attack()
     {
         base.Attack();
+
+        if(currentWeapon is RangedWeapon currentRangedWeapon)
+        {
+            shootCountdown = currentRangedWeapon.GetFireRate();
+        }
+        else
+        {
+            shootCountdown = 1;
+        }
 
         currentWeapon.Use(weaponTip);
     }
