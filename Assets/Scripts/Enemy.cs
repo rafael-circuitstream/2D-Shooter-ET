@@ -6,7 +6,7 @@ public class Enemy : Character
     [SerializeField] private float distanceToAttack;
     [SerializeField] private GameObject dieEffectPrefab;
 
-
+    public float damageMultiplier;
     protected override void Start()
     {
         base.Start();

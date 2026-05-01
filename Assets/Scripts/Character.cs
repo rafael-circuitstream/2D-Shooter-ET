@@ -9,13 +9,13 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected Rigidbody2D rigidbodyModule;
 
-
+    public float initialHealth;
     public Health healthModule;
 
 
     protected virtual void Start()
     {
-        healthModule = new Health(100);
+        healthModule = new Health(initialHealth);
     }
 
     public void Move()

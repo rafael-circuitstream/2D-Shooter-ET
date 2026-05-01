@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        
         StartCoroutine(  SpawnRandomEnemy()  );
 
     }
@@ -54,12 +55,13 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            if (allSpawnedEnemies.Count < 11)
+            if (allSpawnedEnemies.Count < 30)
             {
                 int amountOfIndexes = possibleEnemyPrefabs.Length;
                 int randomIndex = Random.Range(0, amountOfIndexes);
-                Enemy clonedEnemy = Instantiate(possibleEnemyPrefabs[randomIndex]);
 
+                Enemy clonedEnemy = Instantiate(possibleEnemyPrefabs[randomIndex]);
+                //clonedEnemy.initialHealth = 200f;
                 allSpawnedEnemies.Add(clonedEnemy);
 
                 int amountOfSpawnPoints = possibleSpawnPoints.Length;
@@ -76,13 +78,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-
-    }
-
-
-
     public int GetCurrentScore()
     {
         return currentScore;
@@ -94,9 +89,6 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighestScore", currentScore);
         }
-
-
-
     }
 
 

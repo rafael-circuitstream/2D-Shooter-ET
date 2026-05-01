@@ -30,6 +30,8 @@ public class Player : Character, IDash
     private void EndGame()
     {
         FindAnyObjectByType<GameManager>().RegisterHighScore();
+        FindAnyObjectByType<UIManager>().ShowGameOver();
+
         Destroy(gameObject);
     }
 

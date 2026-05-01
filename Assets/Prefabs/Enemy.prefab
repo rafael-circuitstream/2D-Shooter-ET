@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   moveSpeed: 100
   rigidbodyModule: {fileID: 2983201044919016693}
+  initialHealth: 100
   distanceToAttack: 2
   dieEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
 --- !u!50 &2983201044919016693

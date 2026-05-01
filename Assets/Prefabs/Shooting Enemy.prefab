@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootingEnemy
   moveSpeed: 100
   rigidbodyModule: {fileID: 8430433828923104206}
+  initialHealth: 100
   distanceToAttack: 4
   dieEffectPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
   currentWeapon: {fileID: 11400000, guid: f0499c2e46a36a94a9a1d3162e025ad6, type: 2}

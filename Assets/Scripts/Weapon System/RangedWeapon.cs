@@ -21,7 +21,11 @@ public class RangedWeapon : Weapon
             audioManagerReference = FindAnyObjectByType<AudioManager>();
         }
 
-        audioManagerReference.PlayShootingSound(shootingSound);
+        if(shootingSound)
+        {
+            audioManagerReference.PlayShootingSound(shootingSound);
+        }
+
     }
 
     public float GetFireRate()
